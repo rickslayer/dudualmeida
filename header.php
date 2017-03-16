@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php wp_head(); ?>
-<?php $home = get_template_directory_uri(); ?>
 <html lang="en">
 <head>
 <title>Rock a Music Category Flat Bootstrap Responsive website Template | Home :: w3layouts</title>
@@ -10,22 +9,22 @@
     SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
-<link href="<?= $home;?>/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="<?= $home;?>/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="<?= getHome();?>/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="<?= getHome();?>/css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
-<link href="<?= $home;?>/css/font-awesome.css" rel="stylesheet">
+<link href="<?= getHome();?>/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons -->
 <!-- js -->
-<script src="<?= $home;?>/js/jquery-2.2.3.min.js"></script>
+<script src="<?= getHome();?>/js/jquery-2.2.3.min.js"></script>
 <!-- //js -->
 <!-- web-fonts -->
 <link href="//fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
 <!-- start-smooth-scrolling -->
-<script type="text/javascript" src="<?= $home;?>/js/move-top.js"></script>
-<script type="text/javascript" src="<?= $home;?>/js/easing.js"></script>
+<script type="text/javascript" src="<?= getHome();?>/js/move-top.js"></script>
+<script type="text/javascript" src="<?= getHome();?>/js/easing.js"></script>
 <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -40,7 +39,7 @@
     <!-- banner start here -->
     <div class="agileinfo-main">
         <div class="slider">
-            <script src="js/responsiveslides.min.js"></script>
+            <script src="<?= getHome();?>/js/responsiveslides.min.js"></script>
             <script>
                 // You can also use "$(window).load(function() {"
                 $(function () {
@@ -93,10 +92,10 @@
             <span class="menu">Menu</span>
             <ul class="w3l">
                 <li><a class="active" href="index.html"><i aria-hidden="true" class="glyphicon glyphicon-home"></i><span>Home</span></a></li>
-                <li><a href="about.html"><i class="glyphicon glyphicon-user"></i><span>About</span></a></li>
+                <li><a href="codes.html"><i class="glyphicon glyphicon-picture"></i><span>Cursos</span></a></li>
                 <li><a href="blog.html"><i class="glyphicon glyphicon-list-alt"></i><span>Blog</span></a></li>
-                <li><a href="codes.html"><i class="glyphicon glyphicon-picture"></i><span>Short Codes</span></a></li>
-                <li><a href="contact.html"><i class="glyphicon glyphicon-envelope"></i><span>Contact</span></a></li>
+                <li><a href="about.html"><i class="glyphicon glyphicon-user"></i><span>Sobre</span></a></li>
+                <li><a href="contact.html"><i class="glyphicon glyphicon-envelope"></i><span>Contato</span></a></li>
             </ul>
             <!-- script-for-menu -->
             <script>

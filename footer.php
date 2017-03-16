@@ -1,5 +1,4 @@
 <?php wp_footer(); ?>
-<?php $home = get_template_directory_uri(); ?>
     <!-- footer start here -->
     <div class="agilebg-footer">
         <div class="footer">
@@ -61,7 +60,7 @@
     <!-- copy rights start here -->
     <div class="copy-right">
         <div class="container">
-            <p>© 2017 Rock. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+            <p>© <?= the_time('Y');?> by <?php bloginfo('name'); ?> </p>
         </div>
     </div>
     <!-- //copy right end here -->
@@ -85,6 +84,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?= $home;?>/js/bootstrap.js"></script>
+    <script src="<?= getHome();?>/js/bootstrap.js"></script>
 </body>
 </html>

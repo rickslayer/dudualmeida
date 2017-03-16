@@ -54,7 +54,12 @@ function strip_shortcode_gallery( $content ) {
 
     return $content;
 }
+function getHome()
+{
+ $home = get_template_directory_uri();
 
+ return $home;
+}
 
 
 ?>
