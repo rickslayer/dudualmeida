@@ -73,7 +73,7 @@
         <div class="agileinfo-header">
             <div class="container">
                 <div class="agile-logo">
-                    <h1><a href="index.html"><i class="fa fa-music bounce bounceIn animated" aria-hidden="true"></i> Rock</a></h1>
+                    <h1><a href="<?=home_url();?>"><i class="fa fa-music bounce bounceIn animated" aria-hidden="true"></i> Dudu Almeida</a></h1>
                 </div>
                 <div class="agileits-w3layouts-icons">
                     <div class="social-icon">
@@ -91,11 +91,11 @@
         <div class="top-nav">
             <span class="menu">Menu</span>
             <ul class="w3l">
-                <li><a class="active" href="index.html"><i aria-hidden="true" class="glyphicon glyphicon-home"></i><span>Home</span></a></li>
-                <li><a href="codes.html"><i class="glyphicon glyphicon-picture"></i><span>Cursos</span></a></li>
-                <li><a href="blog.html"><i class="glyphicon glyphicon-list-alt"></i><span>Blog</span></a></li>
-                <li><a href="about.html"><i class="glyphicon glyphicon-user"></i><span>Sobre</span></a></li>
-                <li><a href="contact.html"><i class="glyphicon glyphicon-envelope"></i><span>Contato</span></a></li>
+                <li><a class="active" href="<?=home_url();?>"><i aria-hidden="true" class="glyphicon glyphicon-home"></i><span>Home</span></a></li>
+                <li><a href="<?=home_url();?>/cursos"><i class="glyphicon glyphicon-picture"></i><span>Cursos</span></a></li>
+                <li><a href="<?=home_url();?>/blog"><i class="glyphicon glyphicon-list-alt"></i><span>Blog</span></a></li>
+                <li><a href="<?=home_url();?>/sobre"><i class="glyphicon glyphicon-user"></i><span>Sobre</span></a></li>
+                <li><a href="<?=home_url();?>/contato"><i class="glyphicon glyphicon-envelope"></i><span>Contato</span></a></li>
             </ul>
             <!-- script-for-menu -->
             <script>

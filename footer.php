@@ -5,24 +5,24 @@
             <div class="container">
                 <div class="footer-agileinfo">
                     <div class="col-md-3 col-sm-3 footer-wthree-grid">
-                        <h3>Navigation</h3>
+                        <h3>Navegação</h3>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="codes.html">Short Codes</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="<?=home_url();?>">Home</a></li>
+                            <li><a href="<?=home_url();?>/cursos">Cursos</a></li>
+                            <li><a href="<?=home_url();?>/blog">Blog</a></li>
+                            <li><a href="<?=home_url();?>/sobre">Sobre</a></li>
+                            <li><a href="<?=home_url();?>/contato">Contato</a></li>
                         </ul>
                     </div>
                     <div class="col-md-5 col-sm-5 footer-wthree-grid">
-                        <h3>Latest Tweet</h3>
+                        <h3>Última Publicação</h3>
                         <div class="agileits-w3layouts-tweets">
-                            <h5><i class="fa fa-twitter" aria-hidden="true"></i> Lorem ipsum</h5>
+                            <h5><i class="fa fa-file-text-o" aria-hidden="true"></i> Lorem ipsum</h5>
                         </div>
                         <p>Aenean vitae metus sit amet purus sodales blandit. Nullam ut dolor eu urna viverra semper. Mauris est odio, laoreet laoreet sapien non, sollicitudin bibendum nulla.</p>
                     </div>
                     <div class="col-md-4 col-sm-4 footer-wthree-grid">
-                        <h3>Keep In Touch</h3>
+                        <h3>Entre em contato</h3>
                         <div class="ftr-icons">
                             <div class="ftr-iblock">
                                 <span class="glyphicon glyphicon-map-marker">  </span>
@@ -46,7 +46,7 @@
                                <span class="glyphicon glyphicon-envelope">  </span>
                             </div>
                             <div class="ftr-text">
-                                <p><a href="mailto:info@example.com">mail@example.com</a></p>
+                                <p><a href="mailto:contato@dudualmeida.com.br">contato@dudualmeida.com.br</a></p>
                             </div>
                             <div class="clearfix"> </div>
                        </div>
