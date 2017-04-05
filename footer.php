@@ -8,7 +8,7 @@
                         <h3>Navegação</h3>
                         <ul>
                             <li><a href="<?=home_url();?>">Home</a></li>
-                            <li><a href="<?=home_url();?>/cursos">Cursos</a></li>
+                            <li><a href="<?=home_url();?>/portifolio">Portifólio</a></li>
                             <li><a href="<?=home_url();?>/blog">Blog</a></li>
                             <li><a href="<?=home_url();?>/sobre">Sobre</a></li>
                             <li><a href="<?=home_url();?>/contato">Contato</a></li>

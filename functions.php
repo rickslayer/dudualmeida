@@ -63,36 +63,90 @@ function strip_shortcode_gallery( $content ) {
 function cadastrando_agenda()
     {
     $labels = array(
-    'name' => 'Agenda',
-    'name_singular' => 'Agenda',
-    'add_new_item' => 'Adicionar Novo Registro',
-    'edit_item' =>  'Editar Registro',
-    'attributes' => 'Atributos'
+        'name' => 'Agenda',
+        'name_singular' => 'Agenda',
+        'add_new_item' => 'Adicionar Novo Registro',
+        'edit_item' =>  'Editar Registro',
+        'attributes' => 'Atributos'
      );
 
- $supports = array(
-    'title' ,
-    'editor',
-    'thumbnail',
-    'page-attributes',
-    'post-format' );
+    $supports = array(
+        'title' ,
+        'editor',
+        'thumbnail',
+        'page-attributes',
+        'post-format' 
+      );
 
-$args = array(
-    'labels' => $labels,
-    'public' => true,
-    'menu_icon' => 'dashicons-calendar-alt',
-    'has_archive' => true,
-    'supports' => $supports
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-calendar-alt',
+        'has_archive' => true,
+        'supports' => $supports
+    );
 
- 
- );
-
-register_post_type('agenda', $args);
-
+        register_post_type('agenda', $args);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function fill_content($post){
+
+    $agenda_meta_data = get_post_meta($post->ID);
+     require_once('dados-agenda.php');
+    
+    
+
+}
+
+function register_metabox(){
+    add_meta_box(
+        'informacoes-agenda',
+        'Informações da Agenda',
+        'fill_content',
+        'agenda',
+        'normal',
+        'default'
+    );
+}
 add_action('init', 'cadastrando_agenda'); 
+add_action('add_meta_boxes', 'register_metabox');
 
-
-
+function atualiza_meta_info($post_id){
+        if(isset($_POST['dataAgenda_id']))
+        {
+              update_post_meta($post_id,'dataAgenda_id', sanitize_text_field($_POST['dataAgenda_id']));
+        }
+         if(isset($_POST['enderecoAgenda_id']))
+        {
+              update_post_meta($post_id,'enderecoAgenda_id', sanitize_text_field($_POST['enderecoAgenda_id']));
+        }
+         if(isset($_POST['horarioAgenda_id']))
+        {
+                update_post_meta($post_id,'horarioAgenda_id', sanitize_text_field($_POST['horarioAgenda_id']));
+        }
+}
+add_action('save_post', 'atualiza_meta_info');
 ?>

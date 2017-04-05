@@ -17,6 +17,7 @@
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="<?= getHome();?>/js/jquery-2.2.3.min.js"></script>
+<script src="<?= getHome();?>/js/jquery.mask.min.js"></script>
 <!-- //js -->
 <!-- web-fonts -->
 <link href="//fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
@@ -91,11 +92,11 @@
         <div class="top-nav">
             <span class="menu">Menu</span>
             <ul class="w3l">
-                <li><a class="active" href="<?=home_url();?>"><i aria-hidden="true" class="glyphicon glyphicon-home"></i><span>Home</span></a></li>
-                <li><a href="<?=home_url();?>/cursos"><i class="glyphicon glyphicon-picture"></i><span>Cursos</span></a></li>
-                <li><a href="<?=home_url();?>/blog"><i class="glyphicon glyphicon-list-alt"></i><span>Blog</span></a></li>
-                <li><a href="<?=home_url();?>/sobre"><i class="glyphicon glyphicon-user"></i><span>Sobre</span></a></li>
-                <li><a href="<?=home_url();?>/contato"><i class="glyphicon glyphicon-envelope"></i><span>Contato</span></a></li>
+                <li id="home"><a href="<?=home_url();?>"><i aria-hidden="true" class="glyphicon glyphicon-home"></i><span>Home</span></a></li>
+                <li id="portfolio"><a href="<?=home_url();?>/portfolio"><i class="glyphicon glyphicon-music"></i><span>Portfólio</span></a></li>
+                <li id="blog"><a href="<?=home_url();?>/blog"><i class="glyphicon glyphicon-list-alt"></i><span>Blog</span></a></li>
+                <li id="sobre"><a href="<?=home_url();?>/sobre"><i class="glyphicon glyphicon-user"></i><span>Sobre</span></a></li>
+                <li id="contato"><a href="<?=home_url();?>/contato"><i class="glyphicon glyphicon-envelope"></i><span>Contato</span></a></li>
             </ul>
             <!-- script-for-menu -->
             <script>
