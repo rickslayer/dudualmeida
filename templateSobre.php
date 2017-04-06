@@ -67,68 +67,37 @@
 	<div class="about team">		
 		<div class="container">
 			<h3 class="agile-title">Fotos</h3>  
-			<div class="team-row">
-				<div class="col-md-3 col-sm-6 col-xs-6 team-grids">
-					<div class="thumbnail team-agileits">
-						<img src="images/t1.jpg" class="img-responsive" alt="...">
-						<div class="w3agile-caption">
-							<h4>Vaura Tegsner</h4>
-							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-							<div class="social-icon">
-								<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a> 
-								<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a> 
-								<a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a> 
-							</div> 	
-						</div> 
-					</div>
+			<?php 
+				$dadosGaleria = getDadosPostInterno('galeria-principal');
+				
+				$idPost = $dadosGaleria[0]->ID;
+				$gallery = get_post_gallery($idPost, false);
+				
+				foreach($gallery['src'] as $src): ?>
+						
+						<div class="team-row">
+							<div class="col-md-3 col-sm-6 col-xs-6 team-grids">
+								<div class="thumbnail team-agileits">
+								<img src="<?= $src;?>" class="img-responsive" alt="...">
+									<div class="w3agile-caption">
+										<h4>Vaura Tegsner</h4>
+										<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
+										<div class="social-icon">
+											<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+											<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a> 
+											<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a> 
+											<a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a> 
+										</div> 	
+									</div> 
+								</div>
+							</div>
 				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6 team-grids">
-					<div class="thumbnail team-agileits">
-						<img src="images/t2.jpg" class="img-responsive" alt="...">
-						<div class="w3agile-caption">
-							<h4>Jark Kohnson</h4>
-							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-							<div class="social-icon">
-								<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a> 
-								<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a> 
-								<a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a> 
-							</div> 		
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6 team-grids">
-					<div class="thumbnail team-agileits">
-						<img src="images/t3.jpg" class="img-responsive" alt="...">
-						<div class="w3agile-caption">
-							<h4>Goes Mehak</h4>
-							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>						
-							<div class="social-icon">
-								<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a> 
-								<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a> 
-								<a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a> 
-							</div> 	
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6 team-grids">
-					<div class="thumbnail team-agileits">
-						<img src="images/t4.jpg" class="img-responsive" alt="...">
-						<div class="w3agile-caption">
-							<h4>Chunk Erson</h4>
-							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>						
-							<div class="social-icon">
-								<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a> 
-								<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a> 
-								<a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a> 
-							</div> 	
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
+					
+				 <?php
+                                endforeach;
+				
+			?>
+			<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>  <?php
