@@ -80,13 +80,11 @@
 								<div class="thumbnail team-agileits">
 								<img src="<?= $src;?>" class="img-responsive" alt="...">
 									<div class="w3agile-caption">
-										<h4>Vaura Tegsner</h4>
-										<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
 										<div class="social-icon">
 											<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
 											<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a> 
 											<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a> 
-											<a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a> 
+											<a href="#" class="social-button instagram"><i class="fa fa-instagram"></i></a> 
 										</div> 	
 									</div> 
 								</div>

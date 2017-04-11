@@ -2,17 +2,34 @@
  <script type="text/javascript">
     $(function(){
             $("#home a").addClass("active");
+			$('.users-fa').append('<i class="fa fa-users" aria-hidden="true"></i>');
+			$('.film-fa').append('<i class="fa fa-film" aria-hidden="true"></i>');
+			$('.dedo-fa').append('<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>');
     });
 </script>
+	<?php 
+		$getIcones = getDadosPostInterno('icones-iniciais');
+		$conteudo  = $getIcones[0]->post_content;
+		//die(print_r(, true));
+		echo $conteudo;
+	?>
 	<!-- welcome -->
 	<div class="welcome agileits">
+			<?php 
+				$bemvindo = getDadosPostInterno('seja-bem-vindo');
+				$idPost   = $bemvindo[0]->ID;
+				$conteudo = $bemvindo[0]->post_content;
+				$titulo   = $bemvindo[0]->post_title;  
+			
+			?>
+
 		<div class="container">
-			<h2 class="agile-title">Welcome To Our Site</h2> 
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor dolor, id egestas felis tristique vel. Donec malesuada, lorem sed vulputate tincidunt, nulla quam pulvinar mi, blandit placerat odio neque quis risus. Nullam ultricies erat non lectus aliquam, eu finibus neque semper. Morbi viverra, neque sit amet pretium blandit, dui mauris lacinia metus, a rhoncus erat ipsum vitae augue. Morbi laoreetvenenatis nulla, et venenatis purus scelerisque id. Vestibulum non facilisis lectus, quis accumsan mi.</p>
+			<h2 class="agile-title"><?=$titulo;?></h2> 
+			<p>><?=$conteudo;?></p>
 			<div class="welcome-agileinfo">
 				<div class="col-md-6 col-sm-6 col-xs-6 welcome-grids">
 					<div class="view view-w3-agile">
-						<img src="images/img1.jpg" alt="" class="img-responsive" />
+						<img src="<?=getHome();?>/images/img1.jpg" alt="" class="img-responsive" />
 						<div class="agileits-w3layouts-mask">
 							<h4>Our New Albums</h4>
 							<p>Nullam ut nibh dapibus elit placerat ullamcorper</p>
@@ -21,7 +38,7 @@
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-6 welcome-grids">
 					<div class="view view-w3-agile">
-						<img src="images/img2.jpg" alt="" class="img-responsive" />
+						<img src="<?=getHome();?>/images/img2.jpg" alt="" class="img-responsive" />
 						<div class="agileits-w3layouts-mask">
 							<h4>Letraset sheets</h4>
 							<p>Nullam ut nibh dapibus elit placerat ullamcorper</p>
@@ -64,18 +81,23 @@
                                         ?>           
                      <div class="col-md-4 event-grids">
 					        <div class="w3layouts-text">
-						        <h4><?= $dataAgenda_id?></h4>
-                                   
-						                <h6><a href="<?=$link?>"><?=$titulo?> </a></h6>
-						                    <div class="clearfix"> </div>
-					        </div>
+						        <h4><?= $dataAgenda_id . ' - ' . $titulo?></h4>
+					</div>
+                              
+						        <div class="clearfix"> </div>
+					        
 					                <p><?=$conteudo?></p>
-				            </div>
+				     </div>
                     
                                         <?php endwhile; ?>
 
                     <?php endif; ?>
-                   			
+					 <div class="col-md-2 event-grids">
+						  <div class="w3layouts-text">
+                   			<h6><a href="<?=home_url();?>/minha-agenda/" title="Veja mais...">Veja mais...</a></h6>		
+					     </div>
+					      </div>
+
 				<div class="clearfix"> </div>
 			</div>
 		</div> 

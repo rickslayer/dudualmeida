@@ -8,19 +8,48 @@
                         <h3>Navegação</h3>
                         <ul>
                             <li><a href="<?=home_url();?>">Home</a></li>
-                            <li><a href="<?=home_url();?>/portifolio">Portifólio</a></li>
+                            <li><a href="<?=home_url();?>/portfolio">Portifólio</a></li>
                             <li><a href="<?=home_url();?>/blog">Blog</a></li>
                             <li><a href="<?=home_url();?>/sobre">Sobre</a></li>
                             <li><a href="<?=home_url();?>/contato">Contato</a></li>
                         </ul>
                     </div>
                     <div class="col-md-5 col-sm-5 footer-wthree-grid">
-                        <h3>Última Publicação</h3>
+                        <?php
+                            $args = array(
+                                    'post_type' => 'post',
+                                    'numberposts' => 1,
+                                    'posts_per_page' => 1,
+                                    'order' => 'desc',
+                                    'post_status' => 'publish'
+                            );
+                              
+                                $the_query = new WP_Query( $args );
+                                 ?>
+                                <?php if ( $the_query->have_posts() ) : ?>
+                                     <?php
+
+                                    while ( $the_query->have_posts() ) : $the_query->the_post();
+                                        ?>   
+                                            <?php
+                                        $idPost   =  get_the_ID();
+                                        $conteudo =  get_the_content();
+                                        $conteudo = substr($conteudo,0,100);
+                                        $titulo   = get_the_title();
+                                        $link     = get_permalink($idPost);
+                                        $agenda_meta_data = get_post_meta($post->ID);
+                                         ?>  
+                                      <h3>Última Publicação</h3>
                         <div class="agileits-w3layouts-tweets">
-                            <h5><i class="fa fa-file-text-o" aria-hidden="true"></i> Lorem ipsum</h5>
+                            <h5><i class="fa fa-file-text-o" aria-hidden="true"></i> <?=$titulo?></h5>
                         </div>
-                        <p>Aenean vitae metus sit amet purus sodales blandit. Nullam ut dolor eu urna viverra semper. Mauris est odio, laoreet laoreet sapien non, sollicitudin bibendum nulla.</p>
+                        <p><?=$conteudo?><a href="<?=$link?>">... Leia mais</a></p>
                     </div>
+                                          <?php endwhile; ?>
+
+                    <?php endif; ?>
+
+                        
                     <div class="col-md-4 col-sm-4 footer-wthree-grid">
                         <h3>Entre em contato</h3>
                         <div class="ftr-icons">
