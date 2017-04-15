@@ -25,7 +25,7 @@
                            <?php
                            $idPost   =  get_the_ID();
                            $conteudo = get_the_content();
-                           $conteudo = substr($conteudo, 0,600);
+                           $conteudo = substr($conteudo, 0,300);
                            $titulo   = get_the_title();
                            $link     = get_permalink($idPost);
                            $comentarios = get_comments_number_text();
@@ -55,7 +55,7 @@
 
                    <?php endif; ?>
 
-            <div class="col-md-6 w3lsalbums-grid">
+       <!--     <div class="col-md-6 w3lsalbums-grid">
                 <div class="albums-w3top">
                     <h5>10th November 2016 </h5>
                 </div>
@@ -129,27 +129,28 @@
                     <a class="w3more" href="single.html"><i class="fa fa-mail-forward" aria-hidden="true"></i> More</a>
                 </div>
                 <div class="clearfix"></div>
-            </div>
+            </div>-->
             <div class="clearfix"></div>
             <nav>
                 <ul class="pagination w3-agileits-paging">
                     <li class="disabled" >
                         <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">«</span>
+                            <span aria-hidden="true"><<</span>
                         </a>
                     </li>
-                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
+
+                     <li><?= previous_posts_link( 'Anterior',$the_query->max_num_pages ); ?></li>
+                     <li><?= next_posts_link( 'Próxima', 6 ); ?></li>
+                       <li class="disabled" >
                         <a href="#" aria-label="Next">
-                            <span aria-hidden="true">»</span>
+                            <span aria-hidden="true">>></span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
     </div>
+    <?php
+                    wp_reset_postdata();
+                    ?>
 <?php get_footer()?>

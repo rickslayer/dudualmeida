@@ -189,4 +189,43 @@ function atualiza_meta_info($post_id){
 }
 add_action('save_post', 'atualiza_meta_info');
 add_action('save_post', 'atualiza_meta_contato');
+function wpb_rand_posts() {
+
+    $args = array(
+        'post_type' => 'post',
+        'orderby'   => 'rand',
+        'posts_per_page' => 4,
+         'post_status' => 'publish'
+    );
+
+    $the_query = new WP_Query( $args );
+
+    if ( $the_query->have_posts() ) {
+
+        while ( $the_query->have_posts() ) {
+            $the_query->the_post();
+            $conteudo = get_the_content();
+            $conteudo = substr($conteudo, 0, 60);
+            $string = "  <div class=\"col-md-3 col-sm-3 col-xs-6 popular-posts-grid\">
+                        <div class=\"popular-posts-grid1\">
+                            <a href=\"". get_permalink() . "\"><img src=\"". get_the_post_thumbnail_url()."\" alt=\" \" class=\"img-responsive\"></a>
+                            <h4><a href=\"". get_permalink() . "\">".get_the_title()."</a></h4>
+                            <p>". $conteudo ." ...</p>
+                        </div>
+                    </div>";
+
+
+
+        }
+        wp_reset_postdata();
+    } else {
+
+        $string = 'Posts Não Encontrados';
+    }
+
+    return $string;
+}
+
+
+
 ?>
