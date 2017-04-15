@@ -7,24 +7,25 @@
 			$('.dedo-fa').append('<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>');
     });
 </script>
-	<?php 
+	<?php
 		$getIcones = getDadosPostInterno('icones-iniciais');
 		$conteudo  = $getIcones[0]->post_content;
-		//die(print_r(, true));
+
 		echo $conteudo;
 	?>
 	<!-- welcome -->
 	<div class="welcome agileits">
-			<?php 
+			<?php
 				$bemvindo = getDadosPostInterno('seja-bem-vindo');
 				$idPost   = $bemvindo[0]->ID;
 				$conteudo = $bemvindo[0]->post_content;
-				$titulo   = $bemvindo[0]->post_title;  
-			
+				$titulo   = $bemvindo[0]->post_title;
+
 			?>
 
 		<div class="container">
-			<h2 class="agile-title"><?=$titulo;?></h2> 
+
+			<h2 class="agile-title"><?=$titulo;?></h2>
 			<p>><?=$conteudo;?></p>
 			<div class="welcome-agileinfo">
 				<div class="col-md-6 col-sm-6 col-xs-6 welcome-grids">
@@ -49,13 +50,13 @@
 			</div>
 		</div>
 	</div>
-	<!-- //welcome --> 
+	<!-- //welcome -->
     <!-- events -->
-    <div class="events"> 
+    <div class="events">
 		<div class="container">
-			<h3 class="agile-title">Minha Agenda</h3> 
+			<h3 class="agile-title">Minha Agenda</h3>
 			<div class="events-info">
-    <?php 
+    <?php
                 $args = array(
                     'post_type' => 'agenda',
                     'numberposts' => 3,
@@ -68,7 +69,7 @@
                                     <?php
 
                                     while ( $the_query->have_posts() ) : $the_query->the_post();
-                                        ?>   
+                                        ?>
                                             <?php
                                         $idPost   =  get_the_ID();
                                         $conteudo =  get_the_content();
@@ -78,29 +79,29 @@
                                         $dataAgenda_id     = $agenda_meta_data['dataAgenda_id'][0];
                                         $enderecoAgenda_id = $agenda_meta_data['enderecoAgenda_id'][0];
                                         $horarioAgenda_id  = $agenda_meta_data['horarioAgenda_id'][0];
-                                        ?>           
+                                        ?>
                      <div class="col-md-4 event-grids">
 					        <div class="w3layouts-text">
 						        <h4><?= $dataAgenda_id . ' - ' . $titulo?></h4>
 					</div>
-                              
+
 						        <div class="clearfix"> </div>
-					        
+
 					                <p><?=$conteudo?></p>
 				     </div>
-                    
+
                                         <?php endwhile; ?>
 
                     <?php endif; ?>
 					 <div class="col-md-2 event-grids">
 						  <div class="w3layouts-text">
-                   			<h6><a href="<?=home_url();?>/minha-agenda/" title="Veja mais...">Veja mais...</a></h6>		
+                   			<h6><a href="<?=home_url();?>/minha-agenda/" title="Veja mais...">Veja mais...</a></h6>
 					     </div>
 					      </div>
 
 				<div class="clearfix"> </div>
 			</div>
-		</div> 
-	</div> 
+		</div>
+	</div>
 	<!-- //events -->
 <?php get_footer();?>

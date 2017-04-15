@@ -2,7 +2,7 @@
 <?php wp_head(); ?>
 <html lang="en">
 <head>
-<title>Rock a Music Category Flat Bootstrap Responsive website Template | Home :: w3layouts</title>
+<title><?php geraTitle();?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Rock Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -18,6 +18,8 @@
 <!-- js -->
 <script src="<?= getHome();?>/js/jquery-2.2.3.min.js"></script>
 <script src="<?= getHome();?>/js/jquery.mask.min.js"></script>
+<script src="<?= getHome();?>/js/mainjs.js"></script>
+
 <!-- //js -->
 <!-- web-fonts -->
 <link href="//fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
@@ -53,23 +55,29 @@
                   });
                 });
             </script>
-            <ul class="rslides" id="slider1">
+            <?php
+                $dadosGaleria = getDadosPostInterno('galeria-do-inicio');
+
+                $idPost = $dadosGaleria[0]->ID;
+                $gallery = get_post_gallery($idPost, false);?>
+                     <ul class="rslides" id="slider1">
+                     <?php
+                foreach($gallery['src'] as $src): ?>
+
                 <li>
-                    <div class="banner">
-                        <h3>Duis euismod massa ut sem fringilla blandit. Proin vel enim nec ipsum finibus. </h3>
+                    <div class="banner banner">
+
+                       <img class="img-responsive" src="<?= $src;?>"/>
                     </div>
                 </li>
-                <li>
-                    <div class="banner banner2">
-                        <h3>Proin vel enim nec ipsum finibus. Duis euismod massa ut sem fringilla blandit. </h3>
-                    </div>
-                </li>
-                <li>
-                    <div class="banner banner3">
-                        <h3>Sem fringilla blandit duis euismod massa ut . Proin vel enim nec ipsum finibus. </h3>
-                    </div>
-                </li>
+                 <?php
+                                endforeach;
+
+            ?>
             </ul>
+
+
+
         </div>
         <div class="agileinfo-header">
             <div class="container">
@@ -81,7 +89,6 @@
                         <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
                         <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
                         <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
-                        <a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a>
                         <a href="#" class="social-button skype"><i class="fa fa-skype"></i></a>
                     </div>
                 </div>

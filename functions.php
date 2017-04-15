@@ -27,6 +27,25 @@ function getDadosPostInterno($slug){
 
     return $postInterno;
 }
+function getDadosPage($idPage){
+        $idPage = $idPage;
+        $args = array (
+            'page_id' => $idPage,
+            'post_type'   => 'page',
+             'numberposts' => 1
+            );
+        $paginaDados = get_posts($args);
+        $metadados = array ();
+        $resp = get_post_meta($paginaDados[0]->ID);
+        $metadados['telefone'] = $resp['contato_telefone'][0];
+        $metadados['endereco'] = $resp['contato_endereco'][0];
+        $metadados['email']    = $resp['contato_email'][0];
+        $paginaDados['metadados'] = $metadados;
+
+        return $paginaDados;
+
+}
+
 /*
  * Set post views count using post meta//functions.php
  */
@@ -75,15 +94,22 @@ function cadastrando_agenda()
         'editor',
         'thumbnail',
         'page-attributes',
-        'post-format' 
+        'post-format'
       );
 
     $args = array(
         'labels' => $labels,
+        'show_ui' => true,
+        'has_archive' => false,
+
         'public' => true,
         'menu_icon' => 'dashicons-calendar-alt',
         'has_archive' => true,
-        'supports' => $supports
+        'supports' => $supports,
+        'show_in_rest' => true,
+        'rest_base' =>'agenda',
+        'rest_controller_class' => 'WP_REST_Posts_Controller'
+
     );
 
         register_post_type('agenda', $args);
@@ -91,35 +117,30 @@ function cadastrando_agenda()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function fill_content($post){
 
     $agenda_meta_data = get_post_meta($post->ID);
      require_once('dados-agenda.php');
-    
-    
 
 }
+function fill_content_contato($post){
+    $contato_meta_data = get_post_meta($post->ID);
+    require_once('dados-contato.php');
+}
+
+function registra_metabox_contato(){
+    add_meta_box(
+        'informacoes-contato',
+        'Informações do contato',
+        'fill_content_contato',
+        'page',
+        'normal',
+        'high'
+
+        );
+}
+
+
 
 function register_metabox(){
     add_meta_box(
@@ -131,11 +152,13 @@ function register_metabox(){
         'default'
     );
 }
-add_action('init', 'cadastrando_agenda'); 
+add_action('init', 'cadastrando_agenda');
 add_action('add_meta_boxes', 'register_metabox');
+add_action('add_meta_boxes', 'registra_metabox_contato');
 
-function atualiza_meta_info($post_id){
-        if(isset($_POST['dataAgenda_id']))
+function atualiza_meta_contato($post_id)
+{
+    if(isset($_POST['dataAgenda_id']))
         {
               update_post_meta($post_id,'dataAgenda_id', sanitize_text_field($_POST['dataAgenda_id']));
         }
@@ -148,5 +171,22 @@ function atualiza_meta_info($post_id){
                 update_post_meta($post_id,'horarioAgenda_id', sanitize_text_field($_POST['horarioAgenda_id']));
         }
 }
+
+
+function atualiza_meta_info($post_id){
+        if(isset($_POST['contato_telefone']))
+        {
+              update_post_meta($post_id,'contato_telefone', sanitize_text_field($_POST['contato_telefone']));
+        }
+         if(isset($_POST['contato_endereco']))
+        {
+              update_post_meta($post_id,'contato_endereco', sanitize_text_field($_POST['contato_endereco']));
+        }
+         if(isset($_POST['contato_email']))
+        {
+                update_post_meta($post_id,'contato_email', sanitize_text_field($_POST['contato_email']));
+        }
+}
 add_action('save_post', 'atualiza_meta_info');
+add_action('save_post', 'atualiza_meta_contato');
 ?>

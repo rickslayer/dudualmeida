@@ -781,7 +781,7 @@ p {
 }
 
 .wthree-almub {
-    background: url(../images/img3.jpg)no-repeat center;
+   /* background: url(../images/img3.jpg)no-repeat center;*/
     background-size: cover;
     min-height: 234px;
     -webkit-transition: all 3s;
@@ -1907,7 +1907,7 @@ h2.typoh2 {
 
 .contact-right input[type="text"] {
     border: 1px solid #999;
-    width: 32.3%;
+    width: 100%;
     margin: 0 0 1em 0;
     outline: none;
     font-size: 1em;
@@ -1917,13 +1917,13 @@ h2.typoh2 {
 }
 
 .contact-right input[type="email"] {
-    border: 1px solid #999;
-    margin: 0 .5em 1em 0.5em;
+   border: 1px solid #999;
+    width: 100%;
+    margin: 0 0 1em 0;
     outline: none;
     font-size: 1em;
     color: #777;
     padding: 10px 12px;
-    width: 32%;
     -webkit-appearance: none;
 }
 

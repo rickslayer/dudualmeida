@@ -23,14 +23,14 @@
                                     'order' => 'desc',
                                     'post_status' => 'publish'
                             );
-                              
+
                                 $the_query = new WP_Query( $args );
                                  ?>
                                 <?php if ( $the_query->have_posts() ) : ?>
                                      <?php
 
                                     while ( $the_query->have_posts() ) : $the_query->the_post();
-                                        ?>   
+                                        ?>
                                             <?php
                                         $idPost   =  get_the_ID();
                                         $conteudo =  get_the_content();
@@ -38,7 +38,7 @@
                                         $titulo   = get_the_title();
                                         $link     = get_permalink($idPost);
                                         $agenda_meta_data = get_post_meta($post->ID);
-                                         ?>  
+                                         ?>
                                       <h3>Última Publicação</h3>
                         <div class="agileits-w3layouts-tweets">
                             <h5><i class="fa fa-file-text-o" aria-hidden="true"></i> <?=$titulo?></h5>
@@ -49,15 +49,22 @@
 
                     <?php endif; ?>
 
-                        
+
                     <div class="col-md-4 col-sm-4 footer-wthree-grid">
                         <h3>Entre em contato</h3>
                         <div class="ftr-icons">
+                        <?php
+                            $dadosContato = getDadosPage(10);
+                            $telefone = $dadosContato['metadados']['telefone'];
+                            $endereco = $dadosContato['metadados']['endereco'];
+                            $email = $dadosContato['metadados']['email'];
+
+                        ?>
                             <div class="ftr-iblock">
                                 <span class="glyphicon glyphicon-map-marker">  </span>
                             </div>
                             <div class="ftr-text">
-                                <p>Proin vel enim nec ipsum finibus. Duis euismod massa ut sem fringilla blandit.</p>
+                                <p><?=$endereco?></p>
                             </div>
                             <div class="clearfix"> </div>
                        </div>
@@ -66,7 +73,7 @@
                                 <span class="glyphicon glyphicon-earphone">  </span>
                             </div>
                             <div class="ftr-text">
-                                <p>+333 222 23456</p>
+                                <p><?=$telefone?></p>
                             </div>
                             <div class="clearfix"> </div>
                        </div>
@@ -75,7 +82,7 @@
                                <span class="glyphicon glyphicon-envelope">  </span>
                             </div>
                             <div class="ftr-text">
-                                <p><a href="mailto:contato@dudualmeida.com.br">contato@dudualmeida.com.br</a></p>
+                                <p><a href="mailto:<?=$email?>"><?=$email?></a></p>
                             </div>
                             <div class="clearfix"> </div>
                        </div>
