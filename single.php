@@ -12,6 +12,10 @@
                         <?php
                         $idPost      = get_the_ID();
                         $user        = get_the_author();
+                        $user_nome =  get_the_author_meta( 'first_name' );
+                        $user_sobrenome = get_the_author_meta('last_name');
+                        $user_email  = get_the_author_meta( 'user_email' );
+                        $user_bio    = get_the_author_meta( 'description' );
                         $link        = get_permalink($idPost);
                         $titulo      = get_the_title();
                         $comentarios = get_comments_number_text();
@@ -49,22 +53,21 @@
                 </div>
             </div>
             <div class="author">
-                <h4 class="w3ls-title"> About Admin </h4>
+                <h4 class="w3ls-title"> Sobre <?=$user;?> </h4>
                 <div class="author-grid">
                     <div class="author-grid-left">
                         <img src="images/t1.jpg" alt=" " class="img-responsive ">
                     </div>
                     <div class="author-grid-right">
-                        <h4><a href="#">Vaura Tegsner</a><span>Popular Singer</span></h4>
-                        <p>Nam libero tempore, cum soluta nobis est eligendi optio
-                            cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis
-                            voluptas assumenda est, omnis dolor repellendus.</p>
-                        <div class="social-icon">
+                        <h4><a href="mailto:<?=$user_email;?>" title="Me envie um e-mail"><?=$user_nome . ' ' . $user_sobrenome;?></a><span><?=$user_email;?></span></h4>
+                        <p><?=$user_bio;?> </p>
+                            <?php getRedesSociais();?>
+                      <!--  <div class="social-icon">
                             <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
                             <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
                             <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
                             <a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="clearfix"> </div>
                 </div>

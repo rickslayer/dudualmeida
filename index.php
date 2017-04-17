@@ -28,13 +28,26 @@
 			<h2 class="agile-title"><?=$titulo;?></h2>
 			<p>><?=$conteudo;?></p>
 			<div class="welcome-agileinfo">
+                <?php
+                    $setList = getDadosPostPublicado('minha-set-list');
+
+                    $idPostset   = $setList[0]->ID;
+                    $conteudoset = $setList[0]->post_content;
+                    $conteudoset = substr($conteudoset, 0,100);
+                    $tituloset   = $setList[0]->post_title;
+                    $linkset        = get_permalink($idPostset);
+                    $thumnailset = get_the_post_thumbnail_url($idPostset);
+
+                ?>
 				<div class="col-md-6 col-sm-6 col-xs-6 welcome-grids">
 					<div class="view view-w3-agile">
-						<img src="<?=getHome();?>/images/img1.jpg" alt="" class="img-responsive" />
+                        <a href="<?=$linkset;?>" title="Clique para ver mais">
+						<img src="<?=$thumnailset;?>" alt="" class="img-responsive" />
 						<div class="agileits-w3layouts-mask">
-							<h4>Our New Albums</h4>
-							<p>Nullam ut nibh dapibus elit placerat ullamcorper</p>
+							<h4><?=$tituloset;?></h4>
+							<p><?=$conteudoset;?> ...</p>
 						</div>
+                        </a>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-6 welcome-grids">

@@ -27,6 +27,21 @@ function getDadosPostInterno($slug){
 
     return $postInterno;
 }
+
+function getDadosPostPublicado($slug){
+     $slug = $slug;
+    $args = array (
+        'name' => $slug,
+        'post_type'   => 'post',
+        'post_status' => 'publish',
+        'numberposts' => 1
+        );
+         $postPublicado = get_posts($args);
+
+    return $postPublicado;
+}
+
+
 function getDadosPage($idPage){
         $idPage = $idPage;
         $args = array (
@@ -141,7 +156,6 @@ function registra_metabox_contato(){
 }
 
 
-
 function register_metabox(){
     add_meta_box(
         'informacoes-agenda',
@@ -225,7 +239,122 @@ function wpb_rand_posts() {
 
     return $string;
 }
+add_action( 'show_user_profile', 'extra_info_usuario' );
+add_action( 'edit_user_profile', 'extra_info_usuario' );
+
+function extra_info_usuario( $user ) { ?>
+
+    <h3>Redes sociais</h3>
+
+    <table class="form-table">
+
+        <tr>
+            <th><label for="twitter">Twitter</label></th>
+
+            <td>
+                <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" />
+                <br />
+                <span class="description">Sua conta no twitter.</span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="facebook">Facebook</label></th>
+
+            <td>
+                <input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" />
+                <br />
+                <span class="description">Sua conta no Facebook.</span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="gplus">Google Plus</label></th>
+
+            <td>
+                <input type="text" name="gplus" id="gplus" value="<?php echo esc_attr( get_the_author_meta( 'gplus', $user->ID ) ); ?>" class="regular-text" />
+                <br />
+                <span class="description">Sua conta no Google Plus.</span>
+            </td>
+        </tr>
+           <tr>
+            <th><label for="gplus">Instagram</label></th>
+
+            <td>
+                <input type="text" name="instagram" id="instagram" value="<?php echo esc_attr( get_the_author_meta( 'instagram', $user->ID ) ); ?>" class="regular-text" />
+                <br />
+                <span class="description">Sua conta no Instagram.</span>
+            </td>
+        </tr>
+
+    </table>
+<?php }
+
+add_action( 'personal_options_update', 'extra_info_usuario_salvar' );
+add_action( 'edit_user_profile_update', 'extra_info_usuario_salvar' );
+
+function extra_info_usuario_salvar( $user_id ) {
+
+    if ( !current_user_can( 'edit_user', $user_id ) )
+        return false;
+
+    update_usermeta( $user_id, 'facebook', $_POST['facebook'] );
+    update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
+    update_usermeta( $user_id, 'gplus', $_POST['gplus'] );
+    update_usermeta( $user_id, 'instagram', $_POST['instagram'] );
+
+}
+
+function getRedesSociais(){
 
 
+
+                $html = " <div class=\"social-icon\"> ";
+                if (get_the_author_meta('twitter')) {
+
+                    $html .= "<a href=\"". get_the_author_meta('twitter') ."\" class=\"social-button twitter\" title=\"Twitter\"><i class=\"fa fa-twitter\"></i></a>";
+                }
+                if (get_the_author_meta('facebook')) {
+
+                    $html .= "<a href=\"". get_the_author_meta('facebook') ."\" class=\"social-button facebook\" title=\"Facebook\"><i class=\"fa fa-facebook\"></i></a>";
+                }
+                 if (get_the_author_meta('gplus')) {
+
+                    $html .= "<a href=\"". get_the_author_meta('gplus') ."\" class=\"social-button google\" title=\"Google Plus\"><i class=\"fa fa-google-plus\"></i></a>";
+                }
+                 if (get_the_author_meta('instagram')) {
+
+                    $html .= "<a href=\"". get_the_author_meta('instagram') ."\" class=\"social-button instagram\" title=\"Instagram\"><i class=\"fa fa-instagram\"></i></a>";
+                }
+
+                      $html .= "  </div>";
+
+                      echo   $html;
+
+
+}
+
+function getRedesById($id)
+{
+       $html = " <div class=\"social-icon\"> ";
+                if (get_usermeta($id, 'twitter')) {
+
+                    $html .= "<a href=\"". get_usermeta($id, 'twitter') ."\" class=\"social-button twitter\" title=\"Twitter\"><i class=\"fa fa-twitter\"></i></a>";
+                }
+                if (get_usermeta($id,'facebook')) {
+
+                    $html .= "<a href=\"". get_usermeta($id,'facebook') ."\" class=\"social-button facebook\" title=\"Facebook\"><i class=\"fa fa-facebook\"></i></a>";
+                }
+                 if (get_usermeta($id,'gplus')) {
+
+                    $html .= "<a href=\"". get_usermeta($id,'gplus') ."\" class=\"social-button google\" title=\"Google Plus\"><i class=\"fa fa-google-plus\"></i></a>";
+                }
+                 if (get_usermeta($id,'instagram')) {
+
+                    $html .= "<a href=\"". get_usermeta($id,'instagram') ."\" class=\"social-button instagram\" title=\"Instagram\"><i class=\"fa fa-instagram\"></i></a>";
+                }
+
+                      $html .= "  </div>";
+
+                      echo   $html;
+}
 
 ?>

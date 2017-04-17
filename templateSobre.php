@@ -13,11 +13,11 @@
                 ?>
 	<div class="about agileits">
 		<div class="container">
-			<h2 class="agile-title"><?=the_title();?></h2>  
+			<h2 class="agile-title"><?=the_title();?></h2>
 			<div class="about-info">
 				<div class="col-md-8 about-grids">
 					<h4>José Eduardo Rube de Almeida </h4>
-					<p><?=the_content();?></p>		
+					<p><?=the_content();?></p>
 				</div>
 				<div class="col-md-4 about-grids">
 					<h4>Curiosidades</h4>
@@ -58,42 +58,43 @@
 						<div class="clearfix"> </div>
 					</div>
 				</div>
-				<div class="clearfix"> </div> 
-			</div>	
-		</div>	
+				<div class="clearfix"> </div>
+			</div>
+		</div>
 	</div>
 	<!-- //about -->
 	<!-- about-team -->
-	<div class="about team">		
+	<div class="about team">
 		<div class="container">
-			<h3 class="agile-title">Fotos</h3>  
-			<?php 
+			<h3 class="agile-title">Fotos</h3>
+			<?php
 				$dadosGaleria = getDadosPostInterno('galeria-principal');
-				
+
 				$idPost = $dadosGaleria[0]->ID;
 				$gallery = get_post_gallery($idPost, false);
-				
+
 				foreach($gallery['src'] as $src): ?>
-						
+
 						<div class="team-row">
 							<div class="col-md-3 col-sm-6 col-xs-6 team-grids">
 								<div class="thumbnail team-agileits">
 								<img src="<?= $src;?>" class="img-responsive" alt="...">
 									<div class="w3agile-caption">
-										<div class="social-icon">
+									  <?php getRedesById(2); ?>
+										<!--<div class="social-icon">
 											<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-											<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a> 
-											<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a> 
-											<a href="#" class="social-button instagram"><i class="fa fa-instagram"></i></a> 
-										</div> 	
-									</div> 
+											<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+											<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
+											<a href="#" class="social-button instagram"><i class="fa fa-instagram"></i></a>
+										</div>-->
+									</div>
 								</div>
 							</div>
 				</div>
-					
+
 				 <?php
                                 endforeach;
-				
+
 			?>
 			<div class="clearfix"> </div>
 			</div>
