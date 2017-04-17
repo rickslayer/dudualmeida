@@ -2,12 +2,21 @@
 <?php wp_head(); ?>
 <html lang="pt-br">
 <head>
-<title><?php geraTitle();?></title>
+<title><?php
+if (is_home())
+{
+  bloginfo('name');
+}else{
+  geraTitle();
+}
+
+
+?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Rock Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-    SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link rel="shortcut icon" type="image/png" href="<?= getHome();?>/images/favicon.png"/>
 <!-- Custom Theme files -->
 <link href="<?= getHome();?>/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="<?= getHome();?>/css/style.css" type="text/css" rel="stylesheet" media="all">

@@ -444,6 +444,23 @@ span.menu {
     letter-spacing: 1px;
 }
 
+.tituloagenda {
+    font-size: 1.5em;
+    color: #ff4c4c;
+    margin-bottom: 0.2em;
+    margin-top: 1em;
+    letter-spacing: 1px;
+}
+
+.w3ls-bnrgrids-right a {
+    font-size: 1.1em;
+    color: #ff4c4c;
+    margin-bottom: 0.2em;
+    letter-spacing: 1px;
+}
+
+
+
 .w3ls-bnrgrids:hover i.fa {
     color: #fff;
     background: #007b70;
@@ -720,6 +737,14 @@ p {
     -o-transform: rotate(118deg);
     -ms-transform: rotate(118deg);
     top: 53%;
+}
+.w3layouts-text h4 a {
+    color: #ff4c4c;
+    text-decoration: none;
+}
+
+.w3layouts-text h4 a:hover {
+    color: #fff;
 }
 
 .w3layouts-text h4 span {
@@ -1961,6 +1986,30 @@ h2.typoh2 {
     color: #ff4c4c;
     background: #fff;
 }
+
+.btnAgenda button {
+    border: 1px solid #ff4c4c;
+    padding: .7em 0;
+    width: 22%;
+    margin-top: 0.8em;
+    font-size: 1.1em;
+    color: #fff;
+    letter-spacing: 1px;
+    outline: none;
+    background-color: #ff4c4c;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -webkit-appearance: none;
+}
+
+.btnAgenda button:hover {
+    color: #ff4c4c;
+    background: #fff;
+}
+
 
 
 /*-- //contact --*/

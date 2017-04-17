@@ -1,7 +1,5 @@
 <?php get_header() ?>
-<?php
-die(print_r('testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', true));
-?>
+
  <?php /* The loop */ ?>
             <?php while ( have_posts() ) : the_post(); ?>
                 <div class="main-post-div">
@@ -11,9 +9,9 @@ die(print_r('testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', true));
                 <div class="content-here">
                 <?php  the_content();  ?>
                 </div>
-                <div class="comment-section-here"
-                <?php //comments_template(); ?>
-                </div>
+                <div class="comment-section-here">
+               <b>teseeeeeeeeeeeeeeee</b>
+
                 </div>
 
             <?php endwhile; ?>

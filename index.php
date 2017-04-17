@@ -29,14 +29,26 @@
 			<p>><?=$conteudo;?></p>
 			<div class="welcome-agileinfo">
                 <?php
-                    $setList = getDadosPostPublicado('minha-set-list');
+                   /* $setList = getDadosPostPublicado('minha-set-list');
 
                     $idPostset   = $setList[0]->ID;
                     $conteudoset = $setList[0]->post_content;
                     $conteudoset = substr($conteudoset, 0,100);
                     $tituloset   = $setList[0]->post_title;
                     $linkset        = get_permalink($idPostset);
-                    $thumnailset = get_the_post_thumbnail_url($idPostset);
+                    $thumnailset = get_the_post_thumbnail_url($idPostset);*/
+                    $args = array (
+                     'page_id' => 97,
+                     'post_type'   => 'page',
+                     'numberposts' => 1
+                     );
+                     $setList = get_posts($args);
+                      $idPostset   = $setList[0]->ID;
+                     $conteudoset = $setList[0]->post_content;
+                     $conteudoset = substr($conteudoset, 0,100);
+                     $tituloset   = $setList[0]->post_title;
+                     $linkset        = get_permalink($idPostset);
+                     $thumnailset = get_the_post_thumbnail_url($idPostset);
 
                 ?>
 				<div class="col-md-6 col-sm-6 col-xs-6 welcome-grids">
@@ -45,7 +57,7 @@
 						<img src="<?=$thumnailset;?>" alt="" class="img-responsive" />
 						<div class="agileits-w3layouts-mask">
 							<h4><?=$tituloset;?></h4>
-							<p><?=$conteudoset;?> ...</p>
+							<p>Clique para ver ...</p>
 						</div>
                         </a>
 					</div>
@@ -95,17 +107,67 @@
                                         ?>
                      <div class="col-md-4 event-grids">
 					        <div class="w3layouts-text">
-						        <h4><?= $dataAgenda_id . ' - ' . $titulo?></h4>
+						        <h4><a href="#<?=$link;?>" class="wp_info" data-id="<?=$idPost?>" data-toggle="modal" data-target="#myModal" title="Clique para ver mais"><?= $titulo?></a></h4>
 					</div>
+
 
 						        <div class="clearfix"> </div>
 
-					                <p><?=$conteudo?></p>
+					                <p> <?= $dataAgenda_id . ' - ' . $conteudo?></p>
 				     </div>
 
                                         <?php endwhile; ?>
 
                     <?php endif; ?>
+                     <script type="text/javascript">
+                            $(function(){
+
+                                    $(".wp_info").on('click', function(){
+                                        let idPost = $(this).data('id');
+                                          $.ajax(
+                                            {
+                                                url: 'http://localhost/dudualmeida/wp-json/wp/v2/agenda/'+idPost+'',
+                                                dataType: 'json',
+                                                method: 'GET',
+
+                                            }
+
+                                    )
+                                          .done(function(data){
+
+                                                console.log(data);
+                                                $("#dataLocal").empty();
+                                                $("#dataLocal").text(data.title.rendered + ' - ' + "teste");
+                                                $("#info-agenda").empty();
+                                                $("#info-agenda").append(data.content.rendered);
+                                          });
+
+                            });
+                                });
+
+
+                    </script>
+                     <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h3 class="agile-title">Agenda Edu</h3>
+                                </div>
+                                <div class="modal-body">
+                                  <h4 class="tituloagenda" >Data e Local</h4>
+                                  <h4 id="dataLocal"></h4>
+                                  <h4 class="tituloagenda">Informações</h4>
+                                  <div id="info-agenda"></div>
+                                </div>
+                                <div class="modal-footer">
+                                 <div class="btnAgenda">
+                                  <button type="button" data-dismiss="modal">Fechar</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
 					 <div class="col-md-2 event-grids">
 						  <div class="w3layouts-text">
                    			<h6><a href="<?=home_url();?>/minha-agenda/" title="Veja mais...">Veja mais...</a></h6>

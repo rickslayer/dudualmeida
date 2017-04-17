@@ -10,7 +10,6 @@
 (function($){
     $.fn.getdadosAgenda = function(options){
 
-            var element = $(this);
             var settings = $.extend({
 
                 filters: ""
@@ -27,22 +26,14 @@
                 )
                 .done(function(data){
 
-                      var ul = $("<ul>");
-                    for (var i = 0 ; i < data.length; i++)
-                    {
 
-                        var li = $("<li>");
-
-                        li.append(data[i].title.rendered);
-                        ul.append(li);
-
-                        $(element).append(ul);
-                        console.log(data[i].title.rendered);
-                    }
 
                 });
 
+                 return this;
+
             }
+
 
 
 

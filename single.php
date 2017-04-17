@@ -30,6 +30,7 @@
                     <li><span class="fa fa-envelope-o" aria-hidden="true"></span><a href="#">5 Comments</a></li>
                     <li><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Recusandae</li>
                 </ul>
+
             </div>
             <div class="agile_single_banner">
                 <img src="<?=$thumbnail?>" alt="" class="img-responsive" />
@@ -73,12 +74,22 @@
                 </div>
             </div>
             <div class="write-reply">
-                <h4 class="w3ls-title">Write a Comment</h4>
+                <h4 class="w3ls-title">Deixe Um Comentário</h4>
+
+                <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.8&appId=121314395082356";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
                 <form action="#" method="post">
-                    <input type="text" name="Name" placeholder="Name"  required="">
+                 <div class="fb-comments" data-href="<?=$link?>" data-numposts="20" data-width="100%"></div>
+                   <!-- <input type="text" name="Name" placeholder="Name"  required="">
                     <input type="text" name="Email" placeholder="Email" required="">
                     <textarea name="Comment" placeholder="Write a comment here..." required=""></textarea>
-                    <input type="submit" value="Send">
+                    <input type="submit" value="Send">-->
                 </form>
             </div>
         </div>

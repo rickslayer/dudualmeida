@@ -1,12 +1,18 @@
 <?php /*Template name: templateAgenda*/?>
 <?php get_header();?>
 <?php
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args = array(
     'post_type' => 'agenda',
-    'post_per_page' => 3
+    'post_per_page' => 6,
+    'paged' => $paged
 );
+
 $the_query = new WP_Query( $args );
 ?>
+<div class="albums agile-blog">
+        <div class="container">
+          <h2 class="agile-title">Minha Agenda</h2>
   <?php if ( $the_query->have_posts() ) : ?>
                        <?php
 
@@ -21,19 +27,96 @@ $the_query = new WP_Query( $args );
 
                            ?>
 
+
+             <div class="col-md-6 w3lsalbums-grid">
+                <div class="albums-w3top">
+                    <h5><?= $dataPublicacao?> </h5>
+                </div>
+                <div class="albums-left">
+                    <a href="#<?=$link;?>" data-id="<?=$idPost?>" class="wthree-almub wp_info" data-toggle="modal" data-target="#myModal">
+                    <?php the_post_thumbnail(); ?>
+                    </a>
+                </div>
+                <div class="albums-right">
+                    <h4><a class="wp_info" data-id="<?=$idPost?>" href="#<?=$link ;?>" data-toggle="modal" data-target="#myModal"><?= $titulo; ?></a></h4>
+                    <p><?= $conteudo; ?> ...</p>
+                    <a class="w3more wp_info" href="#<?=$link ;?>" data-id="<?=$idPost?>" data-toggle="modal" data-target="#myModal"><i class="fa fa-mail-forward" aria-hidden="true"></i> Mais</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
                          <?php endwhile; ?>
 
      <?php endif; ?>
+      <div class="clearfix"></div>
+            <nav>
+                <ul class="pagination w3-agileits-paging">
+                    <li class="disabled" >
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true"><<</span>
+                        </a>
+                    </li>
 
-    <div id="teste"></div>
-    <script>
-    $(function(){
+                     <li><?= previous_posts_link( 'Anterior',$the_query->max_num_pages ); ?></li>
+                     <li><?= next_posts_link( 'Próxima', 6 ); ?></li>
+                       <li class="disabled" >
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">>></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-      oDados = new Object();
-     var teste = $("#teste").getdadosAgenda();
-     console.log(teste);
+
+ </div>
+            </div>
+ <script type="text/javascript">
+                            $(function(){
+
+                                    $(".wp_info").on('click', function(){
+                                        let idPost = $(this).data('id');
+                                          $.ajax(
+                                            {
+                                                url: 'http://localhost/dudualmeida/wp-json/wp/v2/agenda/'+idPost+'',
+                                                dataType: 'json',
+                                                method: 'GET',
+
+                                            }
+
+                                    )
+                                          .done(function(data){
+
+                                                console.log(data);
+                                                $("#dataLocal").empty();
+                                                $("#dataLocal").text(data.title.rendered + ' - ' + "teste");
+                                                $("#info-agenda").empty();
+                                                $("#info-agenda").append(data.content.rendered);
+                                          });
+
+                            });
+                                });
 
 
-    });
-    </script>
+                    </script>
+<div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h3 class="agile-title">Agenda Edu</h3>
+                                </div>
+                                <div class="modal-body">
+                                  <h4 class="tituloagenda" >Data e Local</h4>
+                                  <h4 id="dataLocal"></h4>
+                                  <h4 class="tituloagenda">Informações</h4>
+                                  <div id="info-agenda"></div>
+                                    </div>
+                                <div class="modal-footer">
+                                 <div class="btnAgenda">
+                                  <button type="button" data-dismiss="modal">Fechar</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
 <?php get_footer();?>
