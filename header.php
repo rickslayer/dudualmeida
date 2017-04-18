@@ -23,11 +23,16 @@ if (is_home())
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
 <link href="<?= getHome();?>/css/font-awesome.css" rel="stylesheet">
+<link href="<?= getHome();?>/css/animate.css" rel="stylesheet">
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="<?= getHome();?>/js/jquery-2.2.3.min.js"></script>
 <script src="<?= getHome();?>/js/jquery.mask.min.js"></script>
 <script src="<?= getHome();?>/js/mainjs.js"></script>
+
+<script src="<?= getHome();?>/js/jquery.textillate.js"></script>
+<script src="<?= getHome();?>/js/jquery.lettering.js"></script>
+<script src="<?= getHome();?>/js/jquery.fittext.js"></script>
 
 <!-- //js -->
 <!-- web-fonts -->
@@ -99,10 +104,72 @@ if (is_home())
 
 
         </div>
+
+        <audio id="nota_re" src="<?=getHome()?>/arch/D.MP3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
+        <audio id="nota_la" src="<?=getHome()?>/arch/A.MP3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
+        <audio id="nota_do" src="<?=getHome()?>/arch/C.MP3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
+        <audio id="nota_mi" src="<?=getHome()?>/arch/E.MP3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
+        <audio id="nota_fa" src="<?=getHome()?>/arch/F.MP3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
+        <audio id="nota_sol" src="<?=getHome()?>/arch/G.MP3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
+        <audio id="guitar"  src="<?=getHome()?>/arch/Guitar25.mp3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
+        <script type="text/javascript">
+            $(function(){
+                $("#ativaSom").on('mouseover', function(){
+
+                  var guitar = $("#guitar");
+                   guitar.get(0).play();
+
+                });
+                  $("#ativaSom").on('mouseout', function(){
+                  var guitar = $("#guitar");
+                   guitar.get(0).pause();
+
+                });
+                   $("#home").on('mouseover', function(){
+
+                  var guitar = $("#nota_do");
+                   guitar.get(0).play();
+
+                });
+
+                   $("#portfolio").on('mouseover', function(){
+                  var guitar = $("#nota_re");
+                   guitar.get(0).play();
+
+                });
+
+                   $("#blog").on('mouseover', function(){
+                  var guitar = $("#nota_mi");
+                   guitar.get(0).play();
+
+                });
+
+               $("#sobre").on('mouseover', function(){
+                                var guitar = $("#nota_fa");
+                                 guitar.get(0).play();
+
+                              });
+
+               $("#agenda").on('mouseover', function(){
+                                var guitar = $("#nota_sol");
+                                 guitar.get(0).play();
+
+                              });
+
+               $("#contato").on('mouseover', function(){
+                                var guitar = $("#nota_la");
+                                 guitar.get(0).play();
+
+                              });
+
+            });
+
+
+        </script>
         <div class="agileinfo-header">
             <div class="container">
                 <div class="agile-logo">
-                    <h1><a href="<?=home_url();?>"><i class="fa fa-music bounce bounceIn animated" aria-hidden="true"></i> Dudu Almeida</a></h1>
+                    <h1><a id="ativaSom" href="<?=home_url();?>" title="POSICIONE O MOUSE EM CIMA "><i class="fa fa-music bounce bounceIn animated" aria-hidden="true"></i> Dudu Almeida</a></h1>
                 </div>
                 <div class="agileits-w3layouts-icons">
                 <?php getRedesById(2); ?>
@@ -125,6 +192,7 @@ if (is_home())
                 <li id="portfolio"><a href="<?=home_url();?>/portfolio"><i class="glyphicon glyphicon-music"></i><span>Portfólio</span></a></li>
                 <li id="blog"><a href="<?=home_url();?>/blog"><i class="glyphicon glyphicon-list-alt"></i><span>Blog</span></a></li>
                 <li id="sobre"><a href="<?=home_url();?>/sobre"><i class="glyphicon glyphicon-user"></i><span>Sobre</span></a></li>
+                <li id="agenda"><a href="<?=home_url();?>/minha-agenda"><i class="glyphicon glyphicon-calendar"></i><span>Agenda</span></a></li>
                 <li id="contato"><a href="<?=home_url();?>/contato"><i class="glyphicon glyphicon-envelope"></i><span>Contato</span></a></li>
             </ul>
             <!-- script-for-menu -->

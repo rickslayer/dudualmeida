@@ -63,12 +63,33 @@
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-6 welcome-grids">
+            <?php
+                $args = array (
+                    'post_type' => 'post',
+                    'numberposts' =>'1',
+                    'orderby'   => 'rand',
+                    'post_status' => 'publish'
+                 );
+                $post_randomico = get_posts($args);
+                     $idPostrand   = $post_randomico[0]->ID;
+                     $conteudorad = $post_randomico[0]->post_content;
+                     $conteudorad = substr($conteudorad, 0,100);
+                     $titulorad   = $post_randomico[0]->post_title;
+                     $linkrad       = get_permalink($idPostrand);
+                     $thumnailrad = get_the_post_thumbnail_url($idPostrand);
+
+             ?>
+
+
 					<div class="view view-w3-agile">
-						<img src="<?=getHome();?>/images/img2.jpg" alt="" class="img-responsive" />
+            <a href="<?=$linkrad;?>" title="Clique para ver mais">
+						<img src="<?=$thumnailrad?>" alt="" class="img-responsive" />
 						<div class="agileits-w3layouts-mask">
-							<h4>Letraset sheets</h4>
-							<p>Nullam ut nibh dapibus elit placerat ullamcorper</p>
+							<h4><?=$titulorad;?></h4>
+							<p><?=$conteudorad;?></p>
+                <p>Clique para ver ...</p>
 						</div>
+             </a>
 					</div>
 				</div>
 				<div class="clearfix"> </div>

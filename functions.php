@@ -275,13 +275,22 @@ function extra_info_usuario( $user ) { ?>
                 <span class="description">Sua conta no Google Plus.</span>
             </td>
         </tr>
-           <tr>
+         <tr>
             <th><label for="gplus">Instagram</label></th>
 
             <td>
                 <input type="text" name="instagram" id="instagram" value="<?php echo esc_attr( get_the_author_meta( 'instagram', $user->ID ) ); ?>" class="regular-text" />
                 <br />
                 <span class="description">Sua conta no Instagram.</span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="gplus">Youtube</label></th>
+
+            <td>
+                <input type="text" name="youtube" id="youtube" value="<?php echo esc_attr( get_the_author_meta( 'youtube', $user->ID ) ); ?>" class="regular-text" />
+                <br />
+                <span class="description">Sua conta no Youtube.</span>
             </td>
         </tr>
 
@@ -300,6 +309,7 @@ function extra_info_usuario_salvar( $user_id ) {
     update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
     update_usermeta( $user_id, 'gplus', $_POST['gplus'] );
     update_usermeta( $user_id, 'instagram', $_POST['instagram'] );
+     update_usermeta( $user_id, 'youtube', $_POST['youtube'] );
 
 }
 
@@ -323,6 +333,10 @@ function getRedesSociais(){
                  if (get_the_author_meta('instagram')) {
 
                     $html .= "<a href=\"". get_the_author_meta('instagram') ."\" class=\"social-button instagram\" title=\"Instagram\"><i class=\"fa fa-instagram\"></i></a>";
+                }
+                  if (get_the_author_meta('youtube')) {
+
+                    $html .= "<a href=\"". get_the_author_meta('youtube') ."\" class=\"social-button youtube\" title=\"Youtube\"><i class=\"fa fa-youtube\"></i></a>";
                 }
 
                       $html .= "  </div>";
@@ -350,6 +364,10 @@ function getRedesById($id)
                  if (get_usermeta($id,'instagram')) {
 
                     $html .= "<a href=\"". get_usermeta($id,'instagram') ."\" class=\"social-button instagram\" title=\"Instagram\"><i class=\"fa fa-instagram\"></i></a>";
+                }
+                 if (get_usermeta($id,'youtube')) {
+
+                    $html .= "<a href=\"". get_usermeta($id,'youtube') ."\" class=\"social-button youtube\" title=\"Youtube\"><i class=\"fa fa-youtube\"></i></a>";
                 }
 
                       $html .= "  </div>";

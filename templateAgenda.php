@@ -10,6 +10,11 @@ $args = array(
 
 $the_query = new WP_Query( $args );
 ?>
+<script type="text/javascript">
+    $(function(){
+            $("#agenda a").addClass("active");
+    });
+</script>
 <div class="albums agile-blog">
         <div class="container">
           <h2 class="agile-title">Minha Agenda</h2>

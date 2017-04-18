@@ -24,12 +24,12 @@
 
                         ?>
                 <h2><?=$titulo?></h2>
-                <ul>
+               <!--  <ul>
                     <li><span class="fa fa-user" aria-hidden="true"></span><a href="#"><?=$user?></a></li>
                     <li><span class="fa fa-tags" aria-hidden="true"></span><a href="#">5 Tags</a></li>
                     <li><span class="fa fa-envelope-o" aria-hidden="true"></span><a href="#">5 Comments</a></li>
                     <li><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Recusandae</li>
-                </ul>
+                </ul>-->
 
             </div>
             <div class="agile_single_banner">

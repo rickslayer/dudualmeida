@@ -4,7 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-
+.teste{
+    color: white;
+    position: absolute;
+    z-index: 9999;
+    font-size: 50px;
+}
 body {
     margin: 0;
     font-family: 'Roboto Condensed', sans-serif;
@@ -240,12 +245,12 @@ span.menu {
     padding: 0px;
     list-style: none;
     text-align: center;
-    width: 57%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .top-nav ul li {
-    width: 19.5%;
+    width: 11%;
     display: inline-block;
 }
 
