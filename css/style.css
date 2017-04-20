@@ -4,11 +4,10 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-.teste{
-    color: white;
-    position: absolute;
-    z-index: 9999;
-    font-size: 50px;
+.fop_phrase {
+    color: #007b70;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px #333;
 }
 body {
     margin: 0;

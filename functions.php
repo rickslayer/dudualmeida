@@ -8,6 +8,12 @@ function getHome(){
  return $home;
 }
 
+function url_site(){
+
+    $url = bloginfo(url);
+    return $url;
+}
+
 function geraTitle(){
       bloginfo(name);
     if(!is_home())

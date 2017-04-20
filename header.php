@@ -23,16 +23,17 @@ if (is_home())
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
 <link href="<?= getHome();?>/css/font-awesome.css" rel="stylesheet">
-<link href="<?= getHome();?>/css/animate.css" rel="stylesheet">
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="<?= getHome();?>/js/jquery-2.2.3.min.js"></script>
 <script src="<?= getHome();?>/js/jquery.mask.min.js"></script>
 <script src="<?= getHome();?>/js/mainjs.js"></script>
+<script src="<?= getHome();?>/js/dudualmeida-app.js"></script>
 
-<script src="<?= getHome();?>/js/jquery.textillate.js"></script>
-<script src="<?= getHome();?>/js/jquery.lettering.js"></script>
-<script src="<?= getHome();?>/js/jquery.fittext.js"></script>
+
+<script src="<?= getHome();?>/js/jquery.fop-1.0.2.min.js"></script>
+<script src="<?= getHome();?>/js/jquery.snippet.js"></script>
+
 
 <!-- //js -->
 <!-- web-fonts -->
@@ -64,6 +65,7 @@ if (is_home())
 </script>
 </head>
 <body>
+<input type="hidden" name="url_site" id="url_site" value="<?=url_site();?>">
     <!-- banner start here -->
     <div class="agileinfo-main">
         <div class="slider">
@@ -112,60 +114,7 @@ if (is_home())
         <audio id="nota_fa" src="<?=getHome()?>/arch/F.MP3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
         <audio id="nota_sol" src="<?=getHome()?>/arch/G.MP3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
         <audio id="guitar"  src="<?=getHome()?>/arch/Guitar25.mp3" type="audio/mp3">Seu browser não suporta a tag audio</audio>
-        <script type="text/javascript">
-            $(function(){
-                $("#ativaSom").on('mouseover', function(){
 
-                  var guitar = $("#guitar");
-                   guitar.get(0).play();
-
-                });
-                  $("#ativaSom").on('mouseout', function(){
-                  var guitar = $("#guitar");
-                   guitar.get(0).pause();
-
-                });
-                   $("#home").on('mouseover', function(){
-
-                  var guitar = $("#nota_do");
-                   guitar.get(0).play();
-
-                });
-
-                   $("#portfolio").on('mouseover', function(){
-                  var guitar = $("#nota_re");
-                   guitar.get(0).play();
-
-                });
-
-                   $("#blog").on('mouseover', function(){
-                  var guitar = $("#nota_mi");
-                   guitar.get(0).play();
-
-                });
-
-               $("#sobre").on('mouseover', function(){
-                                var guitar = $("#nota_fa");
-                                 guitar.get(0).play();
-
-                              });
-
-               $("#agenda").on('mouseover', function(){
-                                var guitar = $("#nota_sol");
-                                 guitar.get(0).play();
-
-                              });
-
-               $("#contato").on('mouseover', function(){
-                                var guitar = $("#nota_la");
-                                 guitar.get(0).play();
-
-                              });
-
-            });
-
-
-        </script>
         <div class="agileinfo-header">
             <div class="container">
                 <div class="agile-logo">
@@ -188,12 +137,12 @@ if (is_home())
         <div class="top-nav">
             <span class="menu">Menu</span>
             <ul class="w3l">
-                <li id="home"><a href="<?=home_url();?>"><i aria-hidden="true" class="glyphicon glyphicon-home"></i><span>Home</span></a></li>
-                <li id="portfolio"><a href="<?=home_url();?>/portfolio"><i class="glyphicon glyphicon-music"></i><span>Portfólio</span></a></li>
-                <li id="blog"><a href="<?=home_url();?>/blog"><i class="glyphicon glyphicon-list-alt"></i><span>Blog</span></a></li>
-                <li id="sobre"><a href="<?=home_url();?>/sobre"><i class="glyphicon glyphicon-user"></i><span>Sobre</span></a></li>
-                <li id="agenda"><a href="<?=home_url();?>/minha-agenda"><i class="glyphicon glyphicon-calendar"></i><span>Agenda</span></a></li>
-                <li id="contato"><a href="<?=home_url();?>/contato"><i class="glyphicon glyphicon-envelope"></i><span>Contato</span></a></li>
+                <li id="home" title="Dó (C)"><a href="<?=home_url();?>"><i aria-hidden="true" class="glyphicon glyphicon-home"></i><span>Home</span></a></li>
+                <li id="portfolio" title="Ré (D)"><a href="<?=home_url();?>/portfolio"><i class="glyphicon glyphicon-music"></i><span>Portfólio</span></a></li>
+                <li id="blog" title="Mi (E)"><a href="<?=home_url();?>/blog"><i class="glyphicon glyphicon-list-alt"></i><span>Blog</span></a></li>
+                <li id="sobre" title="Fá (F)"><a href="<?=home_url();?>/sobre"><i class="glyphicon glyphicon-user"></i><span>Sobre</span></a></li>
+                <li id="agenda" title="Sol (G)"><a href="<?=home_url();?>/minha-agenda"><i class="glyphicon glyphicon-calendar"></i><span>Agenda</span></a></li>
+                <li id="contato" title="Lá (A)"><a href="<?=home_url();?>/contato"><i class="glyphicon glyphicon-envelope"></i><span>Contato</span></a></li>
             </ul>
             <!-- script-for-menu -->
             <script>

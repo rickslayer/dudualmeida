@@ -12,6 +12,7 @@
 		$conteudo  = $getIcones[0]->post_content;
 
 		echo $conteudo;
+
 	?>
 	<!-- welcome -->
 	<div class="welcome agileits">
@@ -142,12 +143,12 @@
                     <?php endif; ?>
                      <script type="text/javascript">
                             $(function(){
-
+                                    let url_site = $("#url_site").val();
                                     $(".wp_info").on('click', function(){
                                         let idPost = $(this).data('id');
                                           $.ajax(
                                             {
-                                                url: 'http://localhost/dudualmeida/wp-json/wp/v2/agenda/'+idPost+'',
+                                                url: url_site + '/wp-json/wp/v2/agenda/'+idPost+'',
                                                 dataType: 'json',
                                                 method: 'GET',
 

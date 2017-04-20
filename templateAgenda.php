@@ -80,9 +80,10 @@ $the_query = new WP_Query( $args );
 
                                     $(".wp_info").on('click', function(){
                                         let idPost = $(this).data('id');
+                                        let url_site = $("#url_site").val();
                                           $.ajax(
                                             {
-                                                url: 'http://localhost/dudualmeida/wp-json/wp/v2/agenda/'+idPost+'',
+                                                url: url_site +'/wp-json/wp/v2/agenda/'+idPost+'',
                                                 dataType: 'json',
                                                 method: 'GET',
 
