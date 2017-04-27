@@ -15,6 +15,44 @@ if (is_home())
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
+<?php
+  if (is_single())
+  {?>
+    <meta name="description" content="<?=bloginfo('description');?>" />
+<?php
+    $getPost = get_post();
+
+    $author_obj = get_user_by('id', $getPost->post_author);
+    $link        = get_permalink($getPost->ID);
+    $thumbnail   = get_the_post_thumbnail_url();
+    $resumo      = substr($getPost->post_content, 0,100);
+    $postdata    = $getPost->post_date;
+    $postmod     = $getPost->post_modified;
+
+ ?>
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="<?=$resumo?>">
+<meta name="twitter:site" content="@dudualmeida">
+<meta name="twitter:title" content="<?=single_post_title('', true)?>">
+<meta name="twitter:description" content="<?=$getPost->post_content?>">
+<meta name="twitter:creator" content="@<?=$author_obj->user_nicename;?>">
+<meta name="twitter:image" content="<?=$thumbnail?>">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="<?=single_post_title('', true)?>" />
+<meta property="og:type" content="<?=$getPost->post_content?>" />
+<meta property="og:url" content="<?=$link?>" />
+<meta property="og:image" content="<?=$thumbnail?>" />
+<meta property="og:description" content="<?=$getPost->post_content?>" />
+<meta property="og:site_name" content="dudualmeida" />
+<meta property="fb:admins" content="1593428724298623" />
+<meta property="article:published_time" content="<?=$postdata?>+03:00" />
+<meta property="article:modified_time" content="<?=$postmod?>+03:00" />
+ <?php  }
+
+?>
+
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link rel="shortcut icon" type="image/png" href="<?= getHome();?>/images/favicon.png"/>
 <!-- Custom Theme files -->

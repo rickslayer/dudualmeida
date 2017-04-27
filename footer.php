@@ -56,6 +56,7 @@
                         <?php
                             $dadosContato = getDadosPage(10);
                             $telefone = $dadosContato['metadados']['telefone'];
+                            $celular = $dadosContato['metadados']['celular'];
                             $endereco = $dadosContato['metadados']['endereco'];
                             $email = $dadosContato['metadados']['email'];
 
@@ -64,7 +65,7 @@
                                 <span class="glyphicon glyphicon-map-marker">  </span>
                             </div>
                             <div class="ftr-text">
-                                <p><?=$endereco?></p>
+                                <p><?=$endereco;?></p>
                             </div>
                             <div class="clearfix"> </div>
                        </div>
@@ -73,7 +74,7 @@
                                 <span class="glyphicon glyphicon-earphone">  </span>
                             </div>
                             <div class="ftr-text">
-                                <p><?=$telefone?></p>
+                                <p><?=$telefone . ' - ' . $celular;?></p>
                             </div>
                             <div class="clearfix"> </div>
                        </div>
@@ -82,7 +83,7 @@
                                <span class="glyphicon glyphicon-envelope">  </span>
                             </div>
                             <div class="ftr-text">
-                                <p><a href="mailto:<?=$email?>"><?=$email?></a></p>
+                                <p><a href="mailto:<?=$email?>"><?=$email;?></a></p>
                             </div>
                             <div class="clearfix"> </div>
                        </div>

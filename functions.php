@@ -59,6 +59,7 @@ function getDadosPage($idPage){
         $metadados = array ();
         $resp = get_post_meta($paginaDados[0]->ID);
         $metadados['telefone'] = $resp['contato_telefone'][0];
+        $metadados['celular'] = $resp['contato_celular'][0];
         $metadados['endereco'] = $resp['contato_endereco'][0];
         $metadados['email']    = $resp['contato_email'][0];
         $paginaDados['metadados'] = $metadados;
@@ -197,6 +198,10 @@ function atualiza_meta_info($post_id){
         if(isset($_POST['contato_telefone']))
         {
               update_post_meta($post_id,'contato_telefone', sanitize_text_field($_POST['contato_telefone']));
+        }
+         if(isset($_POST['contato_celular']))
+        {
+              update_post_meta($post_id,'contato_celular', sanitize_text_field($_POST['contato_celular']));
         }
          if(isset($_POST['contato_endereco']))
         {

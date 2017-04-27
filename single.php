@@ -1,4 +1,4 @@
-<?php get_header() ?>
+    <?php get_header() ?>
 <!-- single -->
     <div class="single">
         <div class="container">
@@ -56,9 +56,9 @@
             <div class="author">
                 <h4 class="w3ls-title"> Sobre <?=$user;?> </h4>
                 <div class="author-grid">
-                    <div class="author-grid-left">
+                   <!-- <div class="author-grid-left">
                         <img src="images/t1.jpg" alt=" " class="img-responsive ">
-                    </div>
+                    </div>-->
                     <div class="author-grid-right">
                         <h4><a href="mailto:<?=$user_email;?>" title="Me envie um e-mail"><?=$user_nome . ' ' . $user_sobrenome;?></a><span><?=$user_email;?></span></h4>
                         <p><?=$user_bio;?> </p>

@@ -15,6 +15,7 @@
                 the_post();
                 $contato_metaData = get_post_meta($post->ID);
                 $contato_telefone = $contato_metaData['contato_telefone'][0];
+                $contato_celular  = $contato_metaData['contato_celular'][0];
                 $contato_endereco = $contato_metaData['contato_endereco'][0];
                 $contato_email    = $contato_metaData['contato_email'][0];
 
@@ -30,13 +31,13 @@
 				<p><?=the_content();?></p>
 				<ul>
 					<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-						<?=$contato_endereco?>
+						<?=$contato_endereco;?>
 					</li>
 					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-						<?=$contato_telefone?>
+						<?=$contato_telefone . ' - ' . $contato_celular;?>
 					</li>
 					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-						<a href="mailto:<?=$contato_email?>"><?=$contato_email?></a>
+						<a href="mailto:<?=$contato_email?>"><?=$contato_email;?></a>
 					</li>
 				</ul>
 			</div>
