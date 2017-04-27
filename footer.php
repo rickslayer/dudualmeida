@@ -34,7 +34,7 @@
                                             <?php
                                         $idPost   =  get_the_ID();
                                         $conteudo =  get_the_content();
-                                        $conteudo = substr($conteudo,0,100);
+                                        $conteudo = substr($conteudo,0,35);
                                         $titulo   = get_the_title();
                                         $link     = get_permalink($idPost);
                                         $agenda_meta_data = get_post_meta($post->ID);

@@ -287,7 +287,7 @@ function extra_info_usuario( $user ) { ?>
             </td>
         </tr>
          <tr>
-            <th><label for="gplus">Instagram</label></th>
+            <th><label for="Instagram">Instagram</label></th>
 
             <td>
                 <input type="text" name="instagram" id="instagram" value="<?php echo esc_attr( get_the_author_meta( 'instagram', $user->ID ) ); ?>" class="regular-text" />
@@ -296,12 +296,21 @@ function extra_info_usuario( $user ) { ?>
             </td>
         </tr>
         <tr>
-            <th><label for="gplus">Youtube</label></th>
+            <th><label for="Youtube">Youtube</label></th>
 
             <td>
                 <input type="text" name="youtube" id="youtube" value="<?php echo esc_attr( get_the_author_meta( 'youtube', $user->ID ) ); ?>" class="regular-text" />
                 <br />
                 <span class="description">Sua conta no Youtube.</span>
+            </td>
+        </tr>
+         <tr>
+            <th><label for="Linkedin">Linkedin</label></th>
+
+            <td>
+                <input type="text" name="linkedin" id="linkedin" value="<?php echo esc_attr( get_the_author_meta( 'linkedin', $user->ID ) ); ?>" class="regular-text" />
+                <br />
+                <span class="description">Sua conta no Linkedin.</span>
             </td>
         </tr>
 
@@ -320,7 +329,8 @@ function extra_info_usuario_salvar( $user_id ) {
     update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
     update_usermeta( $user_id, 'gplus', $_POST['gplus'] );
     update_usermeta( $user_id, 'instagram', $_POST['instagram'] );
-     update_usermeta( $user_id, 'youtube', $_POST['youtube'] );
+    update_usermeta( $user_id, 'youtube', $_POST['youtube'] );
+    update_usermeta( $user_id, 'linkedin', $_POST['linkedin'] );
 
 }
 
@@ -331,23 +341,27 @@ function getRedesSociais(){
                 $html = " <div class=\"social-icon\"> ";
                 if (get_the_author_meta('twitter')) {
 
-                    $html .= "<a href=\"". get_the_author_meta('twitter') ."\" class=\"social-button twitter\" title=\"Twitter\"><i class=\"fa fa-twitter\"></i></a>";
+                    $html .= "<a href=\"". get_the_author_meta('twitter') ."\" class=\"social-button twitter\" title=\"Twitter\" target=\"_blank\"><i class=\"fa fa-twitter\"></i></a>";
                 }
                 if (get_the_author_meta('facebook')) {
 
-                    $html .= "<a href=\"". get_the_author_meta('facebook') ."\" class=\"social-button facebook\" title=\"Facebook\"><i class=\"fa fa-facebook\"></i></a>";
+                    $html .= "<a href=\"". get_the_author_meta('facebook') ."\" class=\"social-button facebook\" title=\"Facebook\" target=\"_blank\"><i class=\"fa fa-facebook\"></i></a>";
                 }
                  if (get_the_author_meta('gplus')) {
 
-                    $html .= "<a href=\"". get_the_author_meta('gplus') ."\" class=\"social-button google\" title=\"Google Plus\"><i class=\"fa fa-google-plus\"></i></a>";
+                    $html .= "<a href=\"". get_the_author_meta('gplus') ."\" class=\"social-button google\" title=\"Google Plus\" target=\"_blank\"><i class=\"fa fa-google-plus\"></i></a>";
                 }
                  if (get_the_author_meta('instagram')) {
 
-                    $html .= "<a href=\"". get_the_author_meta('instagram') ."\" class=\"social-button instagram\" title=\"Instagram\"><i class=\"fa fa-instagram\"></i></a>";
+                    $html .= "<a href=\"". get_the_author_meta('instagram') ."\" class=\"social-button instagram\" title=\"Instagram\" target=\"_blank\"><i class=\"fa fa-instagram\"></i></a>";
                 }
                   if (get_the_author_meta('youtube')) {
 
-                    $html .= "<a href=\"". get_the_author_meta('youtube') ."\" class=\"social-button youtube\" title=\"Youtube\"><i class=\"fa fa-youtube\"></i></a>";
+                    $html .= "<a href=\"". get_the_author_meta('youtube') ."\" class=\"social-button youtube\" title=\"Youtube\" target=\"_blank\"><i class=\"fa fa-youtube\"></i></a>";
+                }
+                if (get_the_author_meta('linkedin')) {
+
+                    $html .= "<a href=\"". get_the_author_meta('linkedin') ."\" class=\"social-button linkedin\" title=\"Linkedin\" target=\"_blank\"><i class=\"fa fa-linkedin\"></i></a>";
                 }
 
                       $html .= "  </div>";
@@ -362,23 +376,27 @@ function getRedesById($id)
        $html = " <div class=\"social-icon\"> ";
                 if (get_usermeta($id, 'twitter')) {
 
-                    $html .= "<a href=\"". get_usermeta($id, 'twitter') ."\" class=\"social-button twitter\" title=\"Twitter\"><i class=\"fa fa-twitter\"></i></a>";
+                    $html .= "<a href=\"". get_usermeta($id, 'twitter') ."\" class=\"social-button twitter\" title=\"Twitter\" target=\"_blank\"><i class=\"fa fa-twitter\"></i></a>";
                 }
                 if (get_usermeta($id,'facebook')) {
 
-                    $html .= "<a href=\"". get_usermeta($id,'facebook') ."\" class=\"social-button facebook\" title=\"Facebook\"><i class=\"fa fa-facebook\"></i></a>";
+                    $html .= "<a href=\"". get_usermeta($id,'facebook') ."\" class=\"social-button facebook\" title=\"Facebook\" target=\"_blank\"><i class=\"fa fa-facebook\"></i></a>";
                 }
                  if (get_usermeta($id,'gplus')) {
 
-                    $html .= "<a href=\"". get_usermeta($id,'gplus') ."\" class=\"social-button google\" title=\"Google Plus\"><i class=\"fa fa-google-plus\"></i></a>";
+                    $html .= "<a href=\"". get_usermeta($id,'gplus') ."\" class=\"social-button google\" title=\"Google Plus\" target=\"_blank\"><i class=\"fa fa-google-plus\"></i></a>";
                 }
                  if (get_usermeta($id,'instagram')) {
 
-                    $html .= "<a href=\"". get_usermeta($id,'instagram') ."\" class=\"social-button instagram\" title=\"Instagram\"><i class=\"fa fa-instagram\"></i></a>";
+                    $html .= "<a href=\"". get_usermeta($id,'instagram') ."\" class=\"social-button instagram\" title=\"Instagram\" target=\"_blank\"><i class=\"fa fa-instagram\"></i></a>";
                 }
                  if (get_usermeta($id,'youtube')) {
 
-                    $html .= "<a href=\"". get_usermeta($id,'youtube') ."\" class=\"social-button youtube\" title=\"Youtube\"><i class=\"fa fa-youtube\"></i></a>";
+                    $html .= "<a href=\"". get_usermeta($id,'youtube') ."\" class=\"social-button youtube\" title=\"Youtube\" target=\"_blank\"><i class=\"fa fa-youtube\"></i></a>";
+                }
+                if (get_usermeta($id,'linkedin')) {
+
+                    $html .= "<a href=\"". get_usermeta($id,'linkedin') ."\" class=\"social-button linkedin\" title=\"Linkedin\" target=\"_blank\"><i class=\"fa fa-linkedin\"></i></a>";
                 }
 
                       $html .= "  </div>";
