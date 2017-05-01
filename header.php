@@ -34,16 +34,16 @@ if (is_home())
 <meta name="twitter:card" content="<?=$resumo?>">
 <meta name="twitter:site" content="@dudualmeida">
 <meta name="twitter:title" content="<?=single_post_title('', true)?>">
-<meta name="twitter:description" content="<?=$getPost->post_content?>">
+<meta name="twitter:description" content="<?=$resumo?>">
 <meta name="twitter:creator" content="@<?=$author_obj->user_nicename;?>">
 <meta name="twitter:image" content="<?=$thumbnail?>">
 
 <!-- Open Graph data -->
 <meta property="og:title" content="<?=single_post_title('', true)?>" />
-<meta property="og:type" content="<?=$getPost->post_content?>" />
+<meta property="og:type" content="<?=$resumo?>" />
 <meta property="og:url" content="<?=$link?>" />
 <meta property="og:image" content="<?=$thumbnail?>" />
-<meta property="og:description" content="<?=$getPost->post_content?>" />
+<meta property="og:description" content="<?=$resumo?>" />
 <meta property="og:site_name" content="dudualmeida" />
 <meta property="fb:admins" content="1593428724298623" />
 <meta property="article:published_time" content="<?=$postdata?>+03:00" />

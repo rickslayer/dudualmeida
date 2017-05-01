@@ -1,4 +1,9 @@
     <?php get_header() ?>
+     <script type="text/javascript">
+    $(function(){
+            $("#blog a").addClass("active");
+    });
+</script>
 <!-- single -->
     <div class="single">
         <div class="container">

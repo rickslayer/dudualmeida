@@ -25,6 +25,7 @@
 			<div class="col-md-7 contact-right">
 				<form action="#" method="post">
 					<?php echo do_shortcode('[contact-form-7 id="66" title="Formulário de contato 1"]') ?>
+
 				</form>
 			</div>
 			<div class="col-md-5 contact-left">

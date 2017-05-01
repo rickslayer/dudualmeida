@@ -101,13 +101,13 @@
     <!-- events -->
     <div class="events">
 		<div class="container">
-			<h3 class="agile-title">Minha Agenda</h3>
-			<div class="events-info">
+			<h3 class="agile-title"><a class="agenda-titulo" href="<?=home_url();?>/minha-agenda/" title="Veja mais..."> <i class="fa fa-calendar" aria-hidden="true">  </i> Minha Agenda</a></h3>
+			<div class="row">
     <?php
                 $args = array(
                     'post_type' => 'agenda',
-                    'numberposts' => 3,
-                    'posts_per_page' => 3,
+                    'numberposts' => 6,
+                    'posts_per_page' => 6,
                     'order' => 'desc'
                 );
                 $the_query = new WP_Query( $args );
@@ -120,6 +120,7 @@
                                             <?php
                                         $idPost   =  get_the_ID();
                                         $conteudo =  get_the_content();
+                                        $conteudo = substr($conteudo, 0,100);
                                         $titulo   = get_the_title();
                                         $link     = get_permalink($idPost);
                                         $agenda_meta_data = get_post_meta($post->ID);
@@ -127,16 +128,17 @@
                                         $enderecoAgenda_id = $agenda_meta_data['enderecoAgenda_id'][0];
                                         $horarioAgenda_id  = $agenda_meta_data['horarioAgenda_id'][0];
                                         ?>
-                     <div class="col-md-4 event-grids">
-					        <div class="w3layouts-text">
-						        <h4><a href="#<?=$link;?>" class="wp_info" data-id="<?=$idPost?>" data-toggle="modal" data-target="#myModal" title="Clique para ver mais"><?= $titulo?></a></h4>
-					</div>
+
+					        <div class="col-md-6">
+						        <h3><a href="#<?=$link;?>" class="wp_info agenda-titulo" data-id="<?=$idPost?>" data-toggle="modal" data-target="#myModal" title="Clique para ver mais"     ><?= $titulo?></a></h3>
+                                 <p class="agenda-data"> <?= $dataAgenda_id?></p>
+                                  <p class="agenda-content"> <?=$conteudo?></p>
+					           </div>
 
 
-						        <div class="clearfix"> </div>
 
-					                <p> <?= $dataAgenda_id . ' - ' . $conteudo?></p>
-				     </div>
+
+
 
                                         <?php endwhile; ?>
 
@@ -174,7 +176,7 @@
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h3 class="agile-title">Agenda Edu</h3>
+                                  <h3 class="agile-title">Agenda Dudu</h3>
                                 </div>
                                 <div class="modal-body">
                                   <h4 class="tituloagenda" >Data e Local</h4>
@@ -190,11 +192,7 @@
                               </div>
                             </div>
                       </div>
-					 <div class="col-md-2 event-grids">
-						  <div class="w3layouts-text">
-                   			<h6><a href="<?=home_url();?>/minha-agenda/" title="Veja mais...">Veja mais...</a></h6>
-					     </div>
-					      </div>
+
 
 				<div class="clearfix"> </div>
 			</div>

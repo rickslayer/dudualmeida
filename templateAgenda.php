@@ -1,6 +1,17 @@
 <?php /*Template name: templateAgenda*/?>
 <?php get_header();?>
+
+<script type="text/javascript">
+    $(function(){
+            $("#agenda a").addClass("active");
+    });
+</script>
+<div class="albums agile-blog">
+        <div class="container sunset-posts-container">
+          <h2 class="agile-title">Minha Agenda</h2>
+
 <?php
+
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args = array(
     'post_type' => 'agenda',
@@ -9,16 +20,8 @@ $args = array(
 );
 
 $the_query = new WP_Query( $args );
-?>
-<script type="text/javascript">
-    $(function(){
-            $("#agenda a").addClass("active");
-    });
-</script>
-<div class="albums agile-blog">
-        <div class="container">
-          <h2 class="agile-title">Minha Agenda</h2>
-  <?php if ( $the_query->have_posts() ) : ?>
+
+if ( $the_query->have_posts() ) : ?>
                        <?php
 
                        while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -33,18 +36,15 @@ $the_query = new WP_Query( $args );
                            ?>
 
 
+
              <div class="col-md-6 w3lsalbums-grid">
                 <div class="albums-w3top">
-                    <h5><?= $dataPublicacao?> </h5>
+                    <h5><?php echo $titulo; ?> </h5>
                 </div>
-                <div class="albums-left">
-                    <a href="#<?=$link;?>" data-id="<?=$idPost?>" class="wthree-almub wp_info" data-toggle="modal" data-target="#myModal">
-                    <?php the_post_thumbnail(); ?>
-                    </a>
-                </div>
+
                 <div class="albums-right">
-                    <h4><a class="wp_info" data-id="<?=$idPost?>" href="#<?=$link ;?>" data-toggle="modal" data-target="#myModal"><?= $titulo; ?></a></h4>
-                    <p><?= $conteudo; ?> ...</p>
+                    <h4><a class="wp_info" data-id="<?=$idPost?>" href="#<?=$link ;?>" data-toggle="modal" data-target="#myModal"><?php the_title(); ?></a></h4>
+                    <p><?= the_excerpt(); ?> ...</p>
                     <a class="w3more wp_info" href="#<?=$link ;?>" data-id="<?=$idPost?>" data-toggle="modal" data-target="#myModal"><i class="fa fa-mail-forward" aria-hidden="true"></i> Mais</a>
                 </div>
                 <div class="clearfix"></div>
@@ -54,7 +54,7 @@ $the_query = new WP_Query( $args );
 
      <?php endif; ?>
       <div class="clearfix"></div>
-            <nav>
+       <nav>
                 <ul class="pagination w3-agileits-paging">
                     <li class="disabled" >
                         <a href="#" aria-label="Previous">
@@ -71,7 +71,6 @@ $the_query = new WP_Query( $args );
                     </li>
                 </ul>
             </nav>
-
 
  </div>
             </div>
@@ -100,6 +99,7 @@ $the_query = new WP_Query( $args );
                                           });
 
                             });
+
                                 });
 
 

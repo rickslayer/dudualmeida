@@ -1,9 +1,59 @@
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
+
+.carrega-mais{
+
+    border: 1px solid #ff4c4c;
+    padding: .7em 0;
+    width: 22%;
+    margin-top: 0.8em;
+    font-size: 1.1em;
+    color: #fff;
+    letter-spacing: 1px;
+    outline: none;
+    background-color: #ff4c4c;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -webkit-appearance: none;
+}
+
+.carrega-mais:hover {
+    color: #ff4c4c;
+    background: #fff;
+}
+
+
+.agenda-titulo{
+
+    font-size: 1.5em;
+    color: #ffd400;
+    margin-bottom: 0.8em;
+    letter-spacing: 1px;
+     transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    text-decoration: none;
+}
+.agenda-titulo:hover{
+        color: white;
+    }
+
+.agenda-data{
+    font-size: 1.7em;
+    color: #ff4c4c;
+    margin-bottom: 0.2em;
+    letter-spacing: 1px;
+}
+.agenda-content{
+    font-size: 1.5em;
+    color: #999;
+    line-height: 1.8em;
+    width: 60%;
+}
+
 .fop_phrase {
     color: #007b70;
     font-size: 40px;
@@ -793,13 +843,13 @@ p {
 
 .albums-left {
     float: left;
-    width: 50%;
+    width: 100%;
     overflow: hidden;
 }
 
 .albums-right {
     float: right;
-    width: 50%;
+    width: 100%;
     background: #1d1d1d;
     padding: 3em 2em;
     transition: 0.5s all;
@@ -810,9 +860,10 @@ p {
 }
 
 .wthree-almub {
-   /* background: url(../images/img3.jpg)no-repeat center;*/
+  /* background: url(../images/img3.jpg)no-repeat center;*/
     background-size: cover;
     min-height: 234px;
+    max-height: 300px;
     -webkit-transition: all 3s;
     -moz-transition: all 3s;
     -o-transition: all 3s;
